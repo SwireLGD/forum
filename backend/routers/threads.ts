@@ -17,6 +17,7 @@ threadsRouter.post('/', auth, async (req, res, next) => {
         }
 
         const threadData: ThreadMutation = {
+            user: req.body.user,
             title: req.body.title,
             description: req.body.description,
             image: req.file ? req.file.filename : null,
@@ -24,14 +25,14 @@ threadsRouter.post('/', auth, async (req, res, next) => {
     
         const thread = new Thread(threadData);
         await thread.save();
-    
+     
         return res.send(thread);
     } catch (e) {
         if (e instanceof mongoose.Error.ValidationError) {
             return res.status(422).send(e);
-          }
+        }
     
-          return next(e);
+         return next(e);
     }
 });
 

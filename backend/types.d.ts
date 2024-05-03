@@ -21,6 +21,7 @@ interface UserMethods {
 export type UserModel = Model<UserFields, unknown, UserMethods>;
 
 export interface ThreadMutation {
+    user: string;
     title: string;
     description?: string;
     image?: string | null;

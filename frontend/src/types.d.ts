@@ -34,3 +34,18 @@ export interface ValidationError {
 export interface GlobalError {
     error: string;
 }
+
+export interface Thread {
+    _id: string;
+    title: string;
+    description?: string;
+    image?: string | null;
+    date: Date;
+    author: User;
+}
+
+export interface ThreadMutation {
+    title: string;
+    description?: string;
+    image?: string | null;
+}

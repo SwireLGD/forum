@@ -52,16 +52,6 @@ usersRouter.post('/sessions', async (req, res, next) => {
   }
 });
 
-usersRouter.get('/secret', auth, async (req, res, next) => {
-  try {
-    const user = (req as RequestWithUser).user;
-
-    res.send({ message: 'Secret message', username: user?.username });
-  } catch (e) {
-    next(e);
-  }
-});
-
 usersRouter.delete('/sessions', async (req, res, next) => {
   try {
     const headerValue = req.get('Authorization');

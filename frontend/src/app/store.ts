@@ -2,6 +2,7 @@ import storage from "redux-persist/lib/storage";
 import {persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, persistStore} from 'redux-persist';
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {usersReducer} from "../features/users/usersSlice.ts";
+import { threadsReducer } from "../features/threads/threadsSlice.ts";
 
 const userPersistConfig = {
   key: 'shop:users',
@@ -10,6 +11,7 @@ const userPersistConfig = {
 }
 
 const rootReducer = combineReducers({
+  threads: threadsReducer,
   users: persistReducer(userPersistConfig, usersReducer),
 });
 
