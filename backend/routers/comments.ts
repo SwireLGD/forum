@@ -23,9 +23,9 @@ commentsRouter.post('/', auth, async (req, res, next) => {
     } catch (e) {
         if (e instanceof mongoose.Error.ValidationError) {
             return res.status(422).send(e);
-          }
+        }
     
-          next(e);
+        return  next(e);
     }
 });
 
@@ -33,8 +33,8 @@ commentsRouter.get('/', async (req, res, next) => {
     try {
         const comments = await Comment.find();
 
-        res.send(comments);
+        return res.send(comments);
     } catch (e) {
-        next(e);
+        return next(e);
     }
 });

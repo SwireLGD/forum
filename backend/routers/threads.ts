@@ -31,7 +31,7 @@ threadsRouter.post('/', auth, async (req, res, next) => {
             return res.status(422).send(e);
           }
     
-          next(e);
+          return next(e);
     }
 });
 
@@ -39,9 +39,9 @@ threadsRouter.get('/', async (req, res, next) => {
     try {
         const threads = await Thread.find();
 
-        res.send(threads);
+        return res.send(threads);
     } catch (e) {
-        next(e);
+        return next(e);
     }
 });
 
@@ -63,7 +63,7 @@ threadsRouter.get('/:id', async (req, res, next) => {
 
         return res.send(thread);
     } catch (e) {
-        next(e);
+        return next(e);
     }
 });
 
