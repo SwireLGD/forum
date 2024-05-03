@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export interface ThreadFields {
     title: string;
     description?: string;
@@ -17,3 +19,13 @@ interface UserMethods {
 }
   
 export type UserModel = Model<UserFields, unknown, UserMethods>;
+
+export interface ThreadMutation {
+    title: string;
+    description?: string;
+    image?: string | null;
+}
+
+export interface CommentMutation {
+    content: string;
+}
